@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What World Should We Live In?</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="text-center py-5">
+        <h1>What World Should We Live In?</h1>
+        <h3>Click on the image to find non-profits you can support who are realizing the world you want to live in.</h3>
+    </header>
+    <div class="container">
+        <div class="row">
+            {% for nonprofit in nonprofits %}
+            <div class="col-md-4 col-sm-6 mb-4">
+                <div class="image-card" 
+                     data-cause="{{ nonprofit.cause | lower }}"
+                     data-api-url="https://partners.every.org/v0.2/search/{{ nonprofit.cause | lower }}?apiKey=pk_live_ae700b69805a488bd57d19a9691941a5&take=5">
+                    <img src="{{ url_for('static', filename='images/' + nonprofit.image) }}" alt="{{ nonprofit.cause }}" class="img-fluid">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <h4>{{ nonprofit.cause }}</h4>
+                            <p>Click here to see non-profits</p>
+                            <p class="license"><small>{{ nonprofit.license }}</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div id="nonprofit-results" class="mt-4"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
