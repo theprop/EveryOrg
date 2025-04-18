@@ -1,0 +1,114 @@
+/* static/css/style.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+header {
+    background-color: #343a40;
+    color: white;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: #ddd;
+}
+
+.image-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    height: 235px;
+    cursor: pointer;
+}
+
+.image-card img {
+    width: 350px;
+    height: 235px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.image-card:hover img {
+    transform: scale(1.05);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-card:hover .overlay {
+    opacity: 1;
+}
+
+.overlay-content {
+    color: white;
+    text-align: center;
+    padding: 20px;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.overlay-content h4 {
+    margin-bottom: 10px;
+}
+
+.overlay-content p {
+    margin: 10px 0;
+}
+
+.license {
+    margin-top: 10px;
+    font-size: 0.8em;
+}
+
+#nonprofit-results {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#nonprofit-results h4 {
+    margin-bottom: 15px;
+}
+
+#nonprofit-results ul {
+    list-style: none;
+    padding: 0;
+}
+
+#nonprofit-results li {
+    margin: 10px 0;
+}
+
+#nonprofit-results a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+#nonprofit-results a:hover {
+    text-decoration: underline;
+}
